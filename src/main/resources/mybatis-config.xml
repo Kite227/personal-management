@@ -15,6 +15,7 @@
         <package name="com.pm.dao.entity"/>
     </typeAliases>
 
+	<!-- 分页插件引入 -->
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageInterceptor">
             <property name="reasonable" value="true"/>
