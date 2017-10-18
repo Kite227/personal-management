@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   <display-name>Archetype Created Web Application</display-name>
   <welcome-file-list>
-  		<welcome-file>user/login.do</welcome-file>
+  		<welcome-file>blog/index.do</welcome-file>
   </welcome-file-list>
   <!--1、启动Spring的容器-->
   <!--需要 ContextLoaderListener-->
