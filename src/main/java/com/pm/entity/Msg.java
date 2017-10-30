@@ -3,30 +3,35 @@ package com.pm.entity;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * é€šç”¨çš„è¿”å›çš„ç±»
+ * @author wp
+ *
+ */
 public class Msg {
-	
-	//×´Ì¬Âğ 100-³É¹¦ 200-Ê§°Ü
+
+	//çŠ¶æ€å— 100-æˆåŠŸ 200-å¤±è´¥
 	private int code;
-	//ÌáÊ¾ĞÅÏ¢
+	//æç¤ºä¿¡æ¯
 	private String msg;
-	//ÓÃ»§Òª·µ»Ø¸øÓÎÀÀÆ÷µÄÊı¾İ
+	//ç”¨æˆ·è¦è¿”å›ç»™æ¸¸è§ˆå™¨çš„æ•°æ®
 	private Map<String,Object> extend=new HashMap<String, Object>();
 	
 	public static Msg success(){
 		Msg result = new Msg();
 		result.setCode(100);
-		result.setMsg("´¦Àí³É¹¦!");
+		result.setMsg("å¤„ç†æˆåŠŸ!");
 		return result;
 	}
 	
 	public static Msg fail(){
 		Msg result = new Msg();
 		result.setCode(200);
-		result.setMsg("´¦ÀíÊ§°Ü!");
+		result.setMsg("å¤„ç†å¤±è´¥!");
 		return result;
 	}
 	
-	//Á´Ê½²Ù×÷·µ»ØĞÅÏ¢
+	//é“¾å¼æ“ä½œè¿”å›ä¿¡æ¯
 	public Msg add(String key,Object value){
 		this.getExtend().put(key, value);
 		return this;
@@ -51,4 +56,5 @@ public class Msg {
 	public void setExtend(Map<String, Object> extend) {
 		this.extend = extend;
 	}
+	
 }

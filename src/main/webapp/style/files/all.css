@@ -1,9 +1,9 @@
 body{
 	margin:0;
 	padding:0;
-	background:#4b4a4a url(../images/tao/bg-body.png) repeat-x 0 0;
+	background:#4b4a4a url(./images/tao/bg-body.png) repeat-x 0 0;
 	font-size:12px;
-	font-family:"Î¢ÈíÑÅºÚ";
+	font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½";
 }
 img{border:none;}
 form,fieldset{margin:0;padding:0;border:0;}
@@ -21,13 +21,13 @@ form,fieldset{margin:0;padding:0;border:0;}
 	width:100%;
 	height:374px;
 	overflow:hidden;
-	background:url(../images/tao/bg-header-transparent.png) no-repeat 0 0;
+	background:url(./images/tao/bg-header-transparent.png) no-repeat 0 0;
 }
 #header .background{
 	width:100%;
 	height:374px;
 	overflow:hidden;
-	background:url(../images/tao/bg-header.jpg) no-repeat 27px 0;
+	background:url(./images/tao/bg-header.jpg) no-repeat 27px 0;
 }
 h1{margin:0;}
 h1  a{
@@ -35,7 +35,7 @@ h1  a{
 	height:36px;
 	margin:15px 0 0 45px;
 	float:left;
-	background:url(../images/tao/bg-logo.png?v=1.4) no-repeat 0 0;
+	background:url(./images/tao/bg-logo.png?v=1.4) no-repeat 0 0;
 	text-indent:-9999px;
 	overflow:hidden;
 }
@@ -111,7 +111,7 @@ h1  a{
 	padding:15px 56px;
 	background:url(../images/tao/bg-leftblock.png) repeat-y 0 0;
 }
-/*±¦±´Í¼Æ¬µÄÑùÊ½*/
+/*ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Ê½*/
 .item{
 	border-radius:15px;
 	width:153px;
@@ -157,7 +157,7 @@ h1  a{
 	opacity:1;
 }
 .item h3{
-	font-family:"Î¢ÈíÑÅºÚ";
+	font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½";
 	font-size:12px;
 	/*font-weight: bold;*/
 	/* padding:0px 0 0 40px; */

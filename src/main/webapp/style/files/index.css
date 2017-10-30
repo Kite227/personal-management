@@ -41,12 +41,12 @@
 .photo-slide ol li.seleted{background: #db6d4c;}
 
 .topnews { margin: 20px 0; }
-.topnews h2 { font-size: 16px; font-weight: bold; line-height: 36px; color: #333; border-bottom: #db6d4c 4px solid; }
+.topnews h2 { font-size: 16px; font-weight: bold; line-height: 36px; color: #333; border-bottom: #408080 4px solid; }
 .topnews h2 b { }
 .topnews h2 span { float: right; font-size: 12px; font-weight: normal; }
 .topnews h2 span a { display: inline-block; padding: 0 5px; }
 .topnews h2 span a:hover { color: #000 }
-.blogs { padding: 30px 0; position: relative; border-bottom: #BFAB86 1px solid; 1px solid; overflow: hidden }
+.blogs { padding: 30px 0; position: relative; border-bottom: #408080 1px solid; 1px solid; overflow: hidden }
 .blogs h3 { font-size: 16px; font-weight: bold; transition: all .5s; margin-bottom: 10px }
 .blogs h3 a { color: #474645; }
 .blogs h3 a:hover { color: #066; text-decoration: underline }

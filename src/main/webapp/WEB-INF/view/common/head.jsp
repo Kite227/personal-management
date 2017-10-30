@@ -28,4 +28,8 @@
 	 	<link rel="stylesheet" href="${ctx}/style/files/jquery.classyleaves.min.css">
 	 	
 	 	<script type="text/javascript" src="${ctx}/style/js/jquery.min.js"></script>
+	 	<script id="cy_cmt_num" src="${ctx }/style/files/plugins.list.count.js.下载"></script>
+		<script type="text/javascript" src="${ctx }/style/files/jquery.form.js.下载"></script>
+		<script type="text/javascript" src="${ctx }/style/files/top.js.下载"></script>
+	 	
 	 	

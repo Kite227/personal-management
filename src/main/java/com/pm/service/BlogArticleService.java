@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.mysql.jdbc.BlobFromLocator;
 import com.pm.dao.BlogArticleMapper;
 import com.pm.entity.BlogArticle;
@@ -19,33 +21,43 @@ public class BlogArticleService {
 	private BlogArticleMapper blogMapper;
 	
 	/**
-	 * 
+	 * è·å–åˆ†é¡µçš„åšå®¢å†…å®¹
 	 * @return
 	 */
-	public List<BlogArticle> getAll() {
+	public PageInfo<BlogArticle> getAll(Integer pn) {
 		
+		PageHelper.startPage(pn, 5);
 		List<BlogArticle> blogArticles = blogMapper.getAll();
-		for(BlogArticle blogArticle : blogArticles) {
-			dateToString(blogArticle);
+		if(!ObjectUtils.isEmpty(blogArticles)) {
+			for(BlogArticle blogArticle : blogArticles) {
+				dateToString(blogArticle);
+			}
 		}
+		//åˆ†é¡µ
+		PageInfo<BlogArticle> page = new PageInfo(blogArticles, 5);
 		
-		return blogArticles;
+		return page;
 	}
 	
 	/**
 	 * 
-	 * ÒÀ¾İtypeId²éÑ¯ËùÓĞµÄ blogÄÚÈİ
+	 * æ ¹æ®typeidè·å–blogå†…å®¹
 	 * @return
 	 */
-	public List<BlogArticle> getAllByTypeId(Integer typeId) {
+	public PageInfo<BlogArticle> getAllByTypeId(Integer pn, Integer typeId) {
 		
+
+		PageHelper.startPage(pn, 5);
 		List<BlogArticle> blogArticles =  blogMapper.getAllByTypeId(typeId);
 		
-		for(BlogArticle blogArticle : blogArticles) {
-			dateToString(blogArticle);
+		if(!ObjectUtils.isEmpty(blogArticles)) {
+			for(BlogArticle blogArticle : blogArticles) {
+				dateToString(blogArticle);
+			}
 		}
+		PageInfo<BlogArticle> page = new PageInfo(blogArticles, 5);
 		
-		return blogArticles;
+		return page;
 	}
 
 	public int deleteBlogById(Integer id) {
@@ -66,13 +78,13 @@ public class BlogArticleService {
 	}
 
 	/**
-	 * »ñÈ¡²©¿ÍÄÚÈİ
+	 *é€šè¿‡idè·å–åšå®¢å†…å®¹
 	 * @return
 	 */
 	public BlogArticle getBlogById(Integer id) {
 		
 		BlogArticle blogArticle = blogMapper.getBlogById(id);
-		//»ñÈ¡ÏàÁÚ×î½üÈÕÆÚµÄÎÄÕÂ
+		//è·å–ä¸‹ä¸€ä¸ªåšå®¢çš„idä¸æ ‡é¢˜
 		BlogArticle nextBlogArticle = blogMapper.getNextBlogByDate(blogArticle.getDate(), blogArticle.getTypeId());
 		if(!ObjectUtils.isEmpty(nextBlogArticle)) {
 			blogArticle.setNextId(nextBlogArticle.getId());
@@ -83,14 +95,35 @@ public class BlogArticleService {
 		return blogArticle;
 	}
 	
+	public int udapteProveByPrimaryKey(Integer id) {
+		
+		return blogMapper.updateProveByPrimaryKey( id);
+	}
+	
 	/**
-	 * ÓÃÓÚ×ª»»BlogArticleÈÕÆÚµÄ·½·¨
+	 * è½¬æ¢BlogArticleçš„æ—¥æœŸ
 	 */
 	private void dateToString(BlogArticle blogArticle) {
 		
 		blogArticle.setDateString(DateUtils.getDateString(blogArticle.getDate()));
 		
 	}
+
+	/**
+	 * å¢åŠ æµè§ˆé‡
+	 */
+	public void updateView(Integer id) {
+		
+		BlogArticle blogArticle = blogMapper.getBlogById(id);
+		if(ObjectUtils.isEmpty(blogArticle)) {
+			return;
+		}
+		
+		blogArticle.setView(blogArticle.getView() + 1);
+		blogMapper.updateView(blogArticle);
+		
+	}
+
 
 
 }

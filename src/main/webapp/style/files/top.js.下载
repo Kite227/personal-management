@@ -88,9 +88,4 @@ $(document).ready(function(){
 	})
 })
 
-/*切换新闻*/
-function showHot(obj){
-   $('#bd'+obj).show().siblings().hide();
-   $('.myself-bd'+obj).parent().addClass("cur").siblings().removeClass("cur");
-}
 

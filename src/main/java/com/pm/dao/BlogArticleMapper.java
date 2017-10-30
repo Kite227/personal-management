@@ -27,4 +27,8 @@ public interface BlogArticleMapper {
 	BlogArticle getBlogById(Integer id);
 
 	BlogArticle getNextBlogByDate(@Param("date")Date date, @Param("typeId")Integer typeId);
+
+	int updateProveByPrimaryKey(@Param("id")Integer id);
+
+	void updateView(BlogArticle blogArticle);
 }

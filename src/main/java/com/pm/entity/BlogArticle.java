@@ -13,6 +13,8 @@ public class BlogArticle implements Serializable {
     private Integer view;
 
     private String cover;
+    
+    private Integer prove;
 
     private String content;
 
@@ -20,11 +22,11 @@ public class BlogArticle implements Serializable {
 
     private Date date;
     
-    private String dateString;//用于转换成的字符串日期，不做ORM映射
+    private String dateString;//涓嶅仛ORM鏄犲皠
     
-    private Integer nextId;//下一篇文章的id，不做ORM映射
+    private Integer nextId;//涓嬩竴绡囨枃绔爄d锛屼笉鍋歰rm鏄犲皠
     
-    private String nextTitle;//下一篇文章的标题，不做ORM映射
+    private String nextTitle;//涓嬩竴绡囨枃绔犳爣棰橈紝涓嶅仛orm鏄犲皠
 
     private static final long serialVersionUID = 1L;
 
@@ -114,6 +116,14 @@ public class BlogArticle implements Serializable {
 
 	public void setNextTitle(String nextTitle) {
 		this.nextTitle = nextTitle;
+	}
+
+	public Integer getProve() {
+		return prove;
+	}
+
+	public void setProve(Integer prove) {
+		this.prove = prove;
 	}
 
 }

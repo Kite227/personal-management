@@ -18,7 +18,7 @@ public class BlogEssay implements Serializable {
 
     private Date date;
     
-    private String dateString;//����ӳ��
+    private String dateString;//把日期转换成String格式不做orm映射
 
     private static final long serialVersionUID = 1L;
 

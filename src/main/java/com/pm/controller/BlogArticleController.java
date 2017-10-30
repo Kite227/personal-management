@@ -16,13 +16,14 @@ import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.fasterxml.jackson.annotation.JsonFormat.Value;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.pm.Enum.PnEnum;
 import com.pm.Enum.TypeIdEnum;
 import com.pm.entity.BlogArticle;
 import com.pm.entity.Msg;
 import com.pm.service.BlogArticleService;
 
 /**
- * ²©¿ÍÄÚÈİ¿ØÖÆÆ÷
+ * åšå®¢å†…å®¹æ§åˆ¶å™¨
  *
  */
 
@@ -34,11 +35,8 @@ public class BlogArticleController {
 	private BlogArticleService blogService;
 	
 	/**
-	 * blogµÄ·ÖÒ³²éÑ¯
-	 * Ê×Ò³ typeId = 1
-	 * ¼¼Êõ·ÖÏí typeId = 2
+	 * é¦–é¡µ
 	 * @param pn
-	 * @param typeId
 	 * @param model
 	 * @return
 	 */
@@ -46,30 +44,37 @@ public class BlogArticleController {
 	public String getBlogs(@RequestParam(value = "pn", defaultValue = "1")Integer pn,
 			Model model) {
 		
-		PageHelper.startPage(pn, 5);
-		List<BlogArticle> blogs = blogService.getAll();
-		//½«²éÑ¯µÄĞÅÏ¢·â×°µ½PageInfo
-		PageInfo<BlogArticle> page = new PageInfo(blogs, 5);
+		PageInfo<BlogArticle> page = blogService.getAll(pn);
 		model.addAttribute("pageInfo", page);
 		
 		return "index";
 	}
 	
+	/**
+	 * typeid=1 éŸ¶åè¿½å¿†
+	 * typeid=2æŠ€æœ¯åˆ†äº«
+	 * @param pn
+	 * @param typeId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String getBlogsByTypeId(@RequestParam(value = "pn", defaultValue = "1")Integer pn,
 			@RequestParam(value = "typeId", defaultValue = "1") Integer typeId,
 			Model model) {
 		
-		PageHelper.startPage(pn, 5);
-		List<BlogArticle> blogs = blogService.getAllByTypeId(typeId);
-		//½«²éÑ¯µÄĞÅÏ¢·â×°µ½PageInfo
-		PageInfo<BlogArticle> page = new PageInfo(blogs, 5);
-		model.addAttribute("pageInfo", page);
+		PageInfo<BlogArticle> page = blogService.getAllByTypeId(pn, typeId);
+		model.addAttribute("blogsInfo", page);
 		
-		return typeId == TypeIdEnum.TypeId_home.getValue() ? "index" : "";
+		//è·å–æœ€æ–°æ–‡ç« 
+		PageInfo<BlogArticle> allPage = blogService.getAll(PnEnum.PnOne.getIndex());
+		model.addAttribute("allBlogsInfo", allPage);
+		
+		return typeId == TypeIdEnum.TypeId_home.getValue() ? "blog-recall" : "blog-skill";
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°¼°ÏÂÒ»¸ö²©¿ÍÄÚÈİ
+	 * åšå®¢å†…å®¹
 	 * @return
 	 */
 	@RequestMapping(value = "/content", method = RequestMethod.GET)
@@ -85,11 +90,18 @@ public class BlogArticleController {
 		}
 		model.addAttribute("blogContent", content);
 		
-		return "blog-content";
+		//è·å–æœ€æ–°æ–‡ç« 
+		PageInfo<BlogArticle> page = blogService.getAll(PnEnum.PnOne.getIndex());
+		model.addAttribute("pageInfo", page);
+		
+		//æ¯æ¬¡ç‚¹å¼€æµè§ˆé‡åŠ ä¸€
+		blogService.updateView(id);
+		
+		return content.getTypeId() == TypeIdEnum.TypeId_home.getValue() ? "blog-content" : "blog-content2";
 		
 	}
 	/**
-	 * ºóÌ¨É¾³ı½Ó¿Ú
+	 * åå°åšå®¢åˆ é™¤æ¥å£
 	 * @param id
 	 * @return
 	 */
@@ -106,7 +118,7 @@ public class BlogArticleController {
 	}
 	
 	/**
-	 * ºóÌ¨´´½¨ĞÂµÄ²©¿Í½Ó¿Ú
+	 * åå°æ·»åŠ æ–°åšå®¢æ¥å£
 	 * @param blogArticle
 	 * @return
 	 */
@@ -122,7 +134,7 @@ public class BlogArticleController {
 	}
 	
 	/**
-	 * ºóÌ¨¸üĞÂ²©¿Í½Ó¿Ú
+	 * æ›´æ–°åšå®¢å†…å®¹
 	 * @param blogArticle
 	 * @return
 	 */

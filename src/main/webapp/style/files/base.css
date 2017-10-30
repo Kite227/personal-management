@@ -16,15 +16,15 @@ a:hover{text-decoration: none;!important}
 .r_box { width: 300px; }
 /* 头部信息 */
 .topbg { background: #f3f3f3; height: 30px; line-height: 30px; width: 100%; }
-.topbgline { height: 1px; width: 100%; margin-top: 1px; background: #E6E6E6 }
+.topbgline { height: 1px; width: 100%; margin-top: 1px; background: #FFE6E6 }
 .topnav { width: 1000px; margin: auto; text-align: right; }
 .topnav a { margin-left: 20px }
 .topnav a:hover { color: #000 }
 /*.logo { width: 1000px; height: 170px; margin: 30px auto; overflow: hidden; clear: both }*/
-.logo { height: 170px; overflow: hidden; clear: both; background:#E8F0E8 url(../images/new_top-min.jpg) scroll no-repeat; background-size: cover; -moz-background-size: cover;  -webkit-background-size: cover;}
+.logo { height: 170px; overflow: hidden; clear: both; background:#E8F0E8 url(../images/timg.jpg) scroll no-repeat; background-size: cover; -moz-background-size: cover;  -webkit-background-size: cover;}
 /*这行需要改进的*/
-#topnav { width: 100%; background: #BFAB86; height: 50px; line-height: 47px; /*margin-top: 140px;*/}
-#topnav ul { width: 1000px; margin: auto }
+#topnav { width: 100%; background: #7b738c; height: 50px; line-height: 47px; /*margin-top: 140px;*/}
+#topnav ul {width: 700px; margin: auto}
 #topnav a { display: inline-block; font-size: 18px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; padding: 0 20px; }
 #topnav a:hover { background: #fffbf0; color: #000; border-top: 4px solid #f77825; }
 #topnav a{ color:#FFF}
@@ -59,7 +59,7 @@ article { width: 1000px; margin: 20px auto; }
 *html { background-image: url(about:blank); background-attachment: fixed; }
 #tbox { width: 54px; float: right; position: fixed; right: 50px; bottom: 15px; _position: absolute; _bottom: auto; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));
 _margin-bottom: 15px; }
-#togbook, #gotop { width: 54px; height: 56px; display: block; background: url(../images/icons.png) no-repeat #111; 
+#togbook, #gotop { width: 54px; height: 56px; display: block; background: url(./images/icons.png) no-repeat #111; 
 	         box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7); border-radius: 6px; 
              border-radius:50%;
 	      }
